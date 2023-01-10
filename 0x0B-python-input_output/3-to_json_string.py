@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-import json
 """Get JSON reperenstation of a string"""
+import json
 
 
 def to_json_string(my_obj):
