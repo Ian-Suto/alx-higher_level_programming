@@ -1,19 +1,38 @@
 #!/usr/bin/python3
-"""A script that adds all arguements to a list and saves them to a JSON file"""
+"""
+A script that add all arguements to a list and saves them to a JSON file.
+"""
 import sys
 import os
+from importlib import import_module as using
 
-if __name__ == "__main__":
-    save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
-    load_from_json_file = \
-        __import__('6-load_from_json_file').load_from_json_file
-    file_name = 'add_time.json'
-    args_list = []
-    if not os.path.isfile(file_name):
-        with open(file_name, 'w', encoding='utf-8') as f:
-            f.write('[]')
-    json_file = load_from_json_file(file_name)
-    if (type(json_file) is list) and all(type(i) is str for i in json_file):
-        args_list.extend(json_file)
+
+save_to_json_file, load_from_json_file = (
+    using('5-save_to_json_file').save_to_json_file,
+    using('6-load_from_json_file').load_from_json_file
+)
+"""The functions for saving and loading lists.
+"""
+args_list = []
+"""The list of arguments.
+"""
+args_list_file_name = 'add_item.json'
+"""The file name of the file containing the list of arguments.
+"""
+
+
+def run():
+    """Activates the script.
+    """
+    if not os.path.isfile(args_list_file_name):
+        with open(args_list_file_name, mode='w', encoding='utf-8') as file:
+            file.write('[]')
+    json_list = load_from_json_file(args_list_file_name)
+    if (type(json_list) is list) and all(type(i) is str for i in json_list):
+        args_list.extend(json_list)
     args_list.extend(sys.argv[1:])
-    save_to_json_file(args_list, file_name)
+    save_to_json_file(args_list, args_list_file_name)
+
+
+if __name__ == '__main__':
+    run()
