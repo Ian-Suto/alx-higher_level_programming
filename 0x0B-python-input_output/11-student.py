@@ -26,4 +26,3 @@ class Student:
         dict_rep = self.__dict__
         for i in dict_rep:
             dict_rep.update({i: json[i]})
-        return (dict_rep)
