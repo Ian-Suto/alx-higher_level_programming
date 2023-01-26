@@ -20,3 +20,10 @@ class Student:
                     dicti.update({i: dict_rep[i]})
             return dicti
         return (dict_rep)
+
+    def reload_from_json(self, json):
+        """Replaces all attributes of the Student instance"""
+        dict_rep = self.__dict__
+        for i in dict_rep:
+            dict_rep.update({i: json[i]})
+        return (dict_rep)
