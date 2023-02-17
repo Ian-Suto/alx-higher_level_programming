@@ -1,2 +1,2 @@
--- Displays average temp by city in descending order 
+-- Displays top 3 cities with highest avg temp btwn Jul and Aug 
 SELECT city, AVG(value) AS avg_temp FROM temperatures WHERE month = 7 OR month = 8 GROUP BY city ORDER BY avg_temp DESC LIMIT 3;
