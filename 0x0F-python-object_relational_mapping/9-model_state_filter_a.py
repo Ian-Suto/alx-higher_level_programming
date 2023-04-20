@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Lists the first State object from the database
+"""Lists State objects that contain the letter 'a' from the database
 """
 import sys
 from model_state import Base, State
@@ -13,8 +13,5 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    first_state = session.query(State).first()
-    if first_state is not None:
-        print('{}: {}'.format(first_state.id, first_state.name))
-    else:
-        print("Nothing")
+    for state in session.query(State).filter(State.name.like('%a%')):
+        print('{}: {}'.format(state.id, state.name))
