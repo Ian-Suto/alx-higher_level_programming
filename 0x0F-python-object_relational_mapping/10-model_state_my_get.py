@@ -15,6 +15,6 @@ if __name__ == "__main__":
 
     state = session.query(State).filter(State.name == sys.argv[4]).first()
     if state is not None:
-        print('{}: {}'.format(state.id))
+        print('{}'.format(state.id))
     else:
         print("Nothing")
