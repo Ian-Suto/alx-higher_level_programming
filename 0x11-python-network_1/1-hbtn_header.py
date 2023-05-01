@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# access a variable's value in the header's response
+"""Script access a variable's value in the header's response"""
 import urllib.request
 import sys
 
