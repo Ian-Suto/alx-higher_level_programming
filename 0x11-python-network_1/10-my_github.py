@@ -15,6 +15,6 @@ if __name__ == "__main__":
     response = get(url, headers=headers)
     user_info = json.loads(response.text)
     try:
-        print(user['id'])
+        print(user_info['id'])
     except Exception as ex:
         print("None")
