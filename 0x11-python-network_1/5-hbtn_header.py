@@ -9,5 +9,5 @@ if __name__ == "__main__":
         res_msg = requests.get(sys.argv[1])
         response = res_msg.headers['X-Request-Id']
         print(response)
-    else:
+    except:
         pass
