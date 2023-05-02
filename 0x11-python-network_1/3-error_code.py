@@ -1,6 +1,8 @@
 #!/usr/bin/python3
-"""Script manages urllib.error.HTTPError exceptions and print: Error code: followed by the HTTP status code"""
-import urllib
+"""Script manages urllib.error.HTTPError exceptions and
+print: Error code: followed by the HTTP status code"""
+import urllib.request
+import urllib.error
 import sys
 
 
