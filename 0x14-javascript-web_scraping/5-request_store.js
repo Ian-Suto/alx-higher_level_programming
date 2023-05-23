@@ -1,4 +1,16 @@
 #!/usr/bin/node
-const fs = require('fs');
+
 const request = require('request');
-request(process.argv[2]).pipe(fs.createWriteStream(process.argv[3]));
+const fs = require('fs');
+const argv = require('process').argv;
+
+request(argv[2], (err, res, body) => {
+  if (err) {
+    throw err;
+  }
+  fs.writeFile(argv[3], body, 'utf8', (err) => {
+    if (err) {
+      throw err;
+    }
+  });
+});
